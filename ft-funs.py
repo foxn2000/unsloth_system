@@ -54,7 +54,6 @@ def run_model(user_input, model_name):
     inputs = tokenizer(
         [
             default_prompt.format(
-                "あなたは優秀な日本語AIアシスタントです。ユーザーが入力した言語と同じ言語で返答しなさい。",  # 命令
                 user_input,  # 入力
                 "",  # 出力 - 生成の場合は空白にします
             )
