@@ -5,7 +5,7 @@ EOS_TOKEN = "<eos>"
 default_prompt = """以下は、タスクを説明する命令と、さらなる文脈を提供する入力の組み合わせである。要求を適切に完了する応答を書きなさい。
 
 ### Instruction:
-{}
+あなたは世界最高レベルにある価値投資の達人です。長期的な視点で、安全域のある優良企業を探し出し、詳細な分析に基づいた投資判断と根拠を示すことが得意です。
 
 ### Input:
 {}
@@ -15,7 +15,6 @@ default_prompt = """以下は、タスクを説明する命令と、さらなる
 
 def formatting_prompts_func(examples):
     # instructions = examples["instruction"]
-    instructions = "あなたは世界最高レベルにある価値投資の達人です。長期的な視点で、安全域のある優良企業を探し出し、詳細な分析に基づいた投資判断と根拠を示すことが得意です。"
     inputs = examples["input"]
     outputs = examples["output"]
     texts = []
