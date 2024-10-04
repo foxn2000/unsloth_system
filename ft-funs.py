@@ -9,7 +9,7 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 from peft import PeftConfig, PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from load_dataset import dataset_load,default_prompt
+from lds import dataset_load,return_default_prompt
 
 def lora_to_model(lora_name, model_name):
 
@@ -48,7 +48,7 @@ def run_model(user_input, model_name):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", torch_dtype=torch.float16) # デバイスを自動的に選択
 
-    default_prompt = default_prompt()
+    default_prompt = return_default_prompt()
 
     # 推論を実行
     inputs = tokenizer(
