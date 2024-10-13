@@ -13,10 +13,10 @@ model_name = "lora_model"
 max_seq_length =8192
 
 # データ型を指定します。自動検出の場合はNone、Tesla T4/V100の場合はFloat16、Ampere+の場合はBfloat16を指定します。
-dtype = None
+dtype = torch.bfloat16
 
 # メモリ使用量を削減するために4ビット量子化を使用するかどうかを指定します。
-load_in_4bit = True
+# load_in_4bit = True
 
 # 事前量子化された4ビットモデルのリストです。これらのモデルはダウンロードが4倍速く、OOMエラーが発生しません。
 # 詳細なモデルリストは https://huggingface.co/unsloth を参照してください。
@@ -37,10 +37,10 @@ fourbit_models = [
 
 # FastLanguageModelとトークナイザーをロードします。
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name="unsloth/gemma-2-9b",
+    model_name="unsloth/gemma-2-9b-it",
     max_seq_length=max_seq_length,
     dtype=dtype,
-    load_in_4bit=load_in_4bit,
+    # load_in_4bit=load_in_4bit,
     device_map='auto'
 )
 
